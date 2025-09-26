@@ -4,8 +4,13 @@
 
 /* Tarjeta */
 .um-card {
-  background: #fff; border: 1px solid #e5e7eb; border-radius: 12px;
-  padding: 20px; margin-bottom: 20px; box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  overflow: hidden;              /* <-- CLAVE */
 }
 
 /* Header */
@@ -42,12 +47,34 @@
 .alert-info    { background: #eff6ff; border-color: #bfdbfe; color: #1e3a8a; }
 
 /* Search */
-.um-search { position: relative; }
-.um-search .input { padding-left: 40px; }
-.um-search-icon {
-  position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #9ca3af;
+/* Search */
+.um-search {
+  position: relative;
 }
-
+.um-search .input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 40px;         /* <-- reserva espacio para el ícono */
+  height: 42px;               /* opcional: altura consistente */
+  line-height: 42px;          /* opcional: centra el texto verticalmente */
+}
+.um-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  width: 18px;
+  height: 18px;
+  pointer-events: none;       /* no tapa clics dentro del input */
+  z-index: 1;                 /* se ve por encima del fondo del input */
+}
+/* (opcional) evita que botones u otros elementos de la cabecera de la card
+   rompan el borde si tienen sombras grandes */
+.um-header .btn {
+  box-shadow: none;
+}
 /* Inputs */
 .input {
   width: 100%; padding: 10px 12px; border: 1px solid #d1d5db; border-radius: 8px;

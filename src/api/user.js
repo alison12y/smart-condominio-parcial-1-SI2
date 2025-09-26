@@ -1,5 +1,5 @@
 const API_BASE =
-  (process.env.REACT_APP_API_BASE?.replace(/\/$/, "")) || "http://localhost:8000/api";
+  (process.env.REACT_APP_API_BASE?.replace(/\/$/, "")) || "http://127.0.0.1:8010/api";
 
 // --- Helpers de auth ---
 function getCsrfToken() {

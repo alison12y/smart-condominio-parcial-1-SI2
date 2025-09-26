@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Search, Edit, Trash2, Plus, User, Mail, Phone, MapPin } from "lucide-react";
-import { UsersApi } from "../api/users";
+import { UsersApi } from "../api/user";
 import "../styles/UserManagement.css";
-import { crearUsuario } from "../services/usuarios"; 
+ 
 
 /* === Mapa FIJO de roles (4 roles) === */
 const roleMap = {
