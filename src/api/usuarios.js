@@ -1,32 +1,43 @@
 import { apiFetch } from "./client";
 
-// Mapea entre la forma del backend y la UI
+// === Helpers de mapeo entre backend y frontend ===
 function fromApi(u) {
   return {
     id: u.id,
-    nombre: u.nombre || u.nombre_completo || "",  // ajusta según tu serializer
-    ci: u.ci || u.documento || "",
-    unidad: u.unidad || u.departamento || "",
-    // Si tu backend devuelve rol como string o como objeto:
-    rol: u.rol?.value || u.rol?.codigo || u.rol || "resi",
+    nombre: u.nombre || u.nombre_completo || "",  // alias
+    ci: u.ci || "",
+    email: u.email || "",
+    telefono: u.telefono || "",
+    direccion: u.direccion || "",
+    unidad: u.unidad || "", // si tienes campo unidad/departamento
+    // backend devuelve rol anidado y rol_nombre
+    rol: u.rol?.id || null,        // ID del rol (para selects)
+    rol_nombre: u.rol_nombre || "", // nombre del rol (para mostrar)
     activo: u.activo ?? true,
   };
 }
 
 function toApi(u) {
   return {
-    // Ajusta estos nombres a tu serializer real
-    nombre: u.nombre,
-    nombre_completo: u.nombre,   // por si tu backend usa nombre_completo
     ci: u.ci,
+    nombre: u.nombre,             // alias de nombre_completo
+    nombre_completo: u.nombre,    // el backend usa este campo
+    email: u.email,
+    telefono: u.telefono,
+    direccion: u.direccion,
     unidad: u.unidad,
-    rol: u.rol,                  // si es string; si es FK usa rol_id (ver nota abajo)
+    rol_id: u.rol,                // 👈 aquí va el ID del rol
     activo: u.activo,
   };
 }
 
+// === Funciones CRUD ===
+
 export async function listarUsuarios() {
-  const res = await apiFetch("/usuarios/", { method: "GET" });
+  const res = await apiFetch("/usuarios/", {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  });
   if (!res.ok) throw new Error("No se pudo cargar usuarios");
   const data = await res.json();
   return data.map(fromApi);
@@ -35,6 +46,7 @@ export async function listarUsuarios() {
 export async function crearUsuario(payload) {
   const res = await apiFetch("/usuarios/", {
     method: "POST",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(toApi(payload)),
   });
   if (!res.ok) {
@@ -47,6 +59,7 @@ export async function crearUsuario(payload) {
 export async function actualizarUsuario(id, payload) {
   const res = await apiFetch(`/usuarios/${id}/`, {
     method: "PUT",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(toApi(payload)),
   });
   if (!res.ok) {
@@ -57,11 +70,9 @@ export async function actualizarUsuario(id, payload) {
 }
 
 export async function activarUsuario(id, activo) {
-  // Si tu backend tiene un endpoint de activar/desactivar:
-  // const res = await apiFetch(`/usuarios/${id}/activar/`, { method: "POST", body: JSON.stringify({ activo }) });
-  // Alternativa genérica: PUT parcial (PATCH) cambiando solo "activo"
   const res = await apiFetch(`/usuarios/${id}/`, {
     method: "PATCH",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ activo }),
   });
   if (!res.ok) {
