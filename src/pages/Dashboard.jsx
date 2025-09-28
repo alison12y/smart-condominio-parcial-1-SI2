@@ -18,6 +18,13 @@ import Usuarios from "../pages/Users";                // Gestionar Usuarios
 import RolesPermisos from "../pages/RolesYPermisos";  // Roles y Permisos
 import Bitacora from "../pages/bitacora";             // Gestionar Bitácora
 import RecordatoriosDePago from "../pages/RecordatoriosDePago";     // Recordatorios de pago
+import AvisosYComunicadosApp from "../pages/AvisosyComunicados";
+import CuotasGastosInterface from "./CuotasyGastosComunes";
+import MaintenanceManagement from "./Mantenimiento";
+import PrediccionMorosidad from "../pages/Predicion-Morosidad";
+import ReportesFinancieros from "../pages/ReportesFinancieros";
+import ReportesAreasComunes from "./Uso-de-areas";
+
 
 /* ====== DASHBOARD ====== */
 
@@ -34,8 +41,26 @@ const Dashboard = () => {
         return <RolesPermisos />;
       case "AdminUsers-GestionarBitacora":
         return <Bitacora />;
+// MODULO DE FINANZAS
       case "FinanceAnalytics-RegistrarPago":      
       return <RecordatoriosDePago />;
+      case "FinanceAnalytics-Cuotas":      
+      return <CuotasGastosInterface />;
+      case "FinanceAnalytics-Prediccion":      
+      return <PrediccionMorosidad />;
+      case "FinanceAnalytics-Reportes":      
+      return <ReportesFinancieros />;
+      case "FinanceAnalytics-ReportesUso":      
+      return <ReportesAreasComunes />;
+
+
+// MODULO COMUNICACIONES
+      case "CommsServices-AvisosYComunicados":      
+      return <AvisosYComunicadosApp />;
+
+// MODULO DE PLATAFORMA 
+      case "PlatformOps-Mantenimiento":      
+      return <MaintenanceManagement />;
 
       default:
         return null;
