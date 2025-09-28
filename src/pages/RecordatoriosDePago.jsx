@@ -132,7 +132,6 @@ export default function PaymentRemindersAdmin() {
           <Bell className="ad-ico-20 ad-primary" />
           <div>
             <h2 className="ad-h2">Sistema de Recordatorios de Pago</h2>
-            <p className="ad-text-dim">Panel administrativo para gestionar recordatorios y residentes</p>
           </div>
         </div>
       </div>

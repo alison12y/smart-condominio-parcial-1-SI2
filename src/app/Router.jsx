@@ -5,7 +5,7 @@ import Users from "../pages/Users";
 import RolesYPermisos from "../pages/RolesYPermisos";
 import BitacoraPractica from "../pages/bitacora";
 import RecordatoriosDePago from "../pages/RecordatoriosDePago";
-import CuotasGastosInterface from "../pages/CuotasyGastosComunes";
+
 
 function PrivateRoute({ children }) {
   const hasToken = !!(localStorage.getItem("access") || sessionStorage.getItem("access"));
@@ -22,7 +22,6 @@ export default function AppRouter() {
       <Route path="/roles" element={<PrivateRoute><RolesYPermisos/></PrivateRoute>} />
       <Route path="/bitacora" element={<PrivateRoute><BitacoraPractica/></PrivateRoute>} />
       <Route path="/pagos" element={<PrivateRoute><RecordatoriosDePago/></PrivateRoute>} />
-      <Route path="/cuotas" element={<PrivateRoute><CuotasGastosInterface/></PrivateRoute>} />
 
       <Route path="*" element={<Navigate to="/login" replace />} />
     </Routes>
