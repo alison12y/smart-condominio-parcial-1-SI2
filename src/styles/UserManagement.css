@@ -25,8 +25,18 @@
 }
 .btn-ghost { background: transparent; color: #6b7280; border-color: #d1d5db; }
 .btn-ghost:hover { background: #f3f4f6; }
-.btn-primary { background: #2563eb; color: #fff; }
-.btn-primary:hover { background: #1d4ed8; }
+/* ---- BOTÓN GUARDAR ---- */
+.btn-primary{
+  background: linear-gradient(90deg,#2563eb,#4338ca) !important; /* tu look azul intenso */
+  color: #ffffff !important;
+  font-weight: 800;                 /* más “peso” al texto */
+  letter-spacing: .2px;             /* legibilidad */
+  text-shadow: 0 1px 0 rgba(0,0,0,.18); /* contraste extra sin ensuciar */
+  border: 1px solid rgba(0,0,0,.05);
+  box-shadow: 0 10px 30px rgba(37,99,235,.25);
+}
+.btn-primary:hover{ filter: brightness(.98); }
+.btn-primary:active{ transform: translateY(1px); }
 .btn-danger { background: #dc2626; color: #fff; }
 .btn-danger:hover { background: #b91c1c; }
 
@@ -113,27 +123,118 @@
 .um-muted { color: #6b7280; }
 
 /* Badges */
-.badge {
-  display: inline-flex; align-items: center;
-  padding: 4px 8px; border-radius: 999px; font-size: 12px; font-weight: 700;
+.badge { color: inherit !important; font-weight: 800; }      
+.btn, .btn-primary { opacity: 1 !important; filter: none !important; } /* por si algún padre baja opacidad */
+
+/* ---- ROLES (chips azules) ---- */
+.badge-blue{
+  background: #dbeafe !important;   /* azul clarito */
+  color: #1e3a8a !important;         /* azul oscuro (alto contraste) */
+  border: 1px solid #bfdbfe;         /* define contorno en fondos blancos */
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.6);
 }
-.badge-blue { background: #dbeafe; color: #1e40af; }
+
+/* Si usas otros chips, déjalos consistentes */
+.badge-success{ background:#dcfce7 !important; color:#166534 !important; border:1px solid #a7f3d0; }
+.badge-danger { background:#fee2e2 !important; color:#991b1b !important; border:1px solid #fecaca; }
 
 /* Acciones */
 .um-actions { display: flex; gap: 8px; }
 
-/* Modal */
-.um-modal-overlay {
-  position: fixed; inset: 0; background: rgba(0,0,0,.45);
-  display: flex; align-items: flex-start; justify-content: center;
-  z-index: 50; overflow-y: auto;
+/* Overlay */
+body .um-modal-overlay{
+  position:fixed !important; inset:0 !important;
+  background: rgba(17,24,39,.55) !important;
+  backdrop-filter: blur(2px) !important;
+  display:flex !important; align-items:flex-start !important; justify-content:center !important;
+  z-index: 9999 !important;
+  overflow-y:auto !important;
 }
-.um-modal {
-  width: 420px; max-width: calc(100% - 24px); margin: 80px 12px 24px;
-  background: #fff; border: 1px solid #e5e7eb; border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.18);
+
+/* Card del modal */
+body .um-modal{
+  width: 520px !important; max-width: calc(100% - 24px) !important;
+  margin: 72px 12px 24px !important;
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 14px !important;
+  box-shadow: 0 18px 40px rgba(0,0,0,.22) !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif !important;
 }
-.um-modal-body { padding: 20px; }
-.um-modal-title { margin: 0 0 14px; font-size: 18px; font-weight: 700; color: #111827; }
-.um-confirm { color: #4b5563; font-size: 14px; margin-bottom: 10px; }
-.um-modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 16px; }
+
+/* Cuerpo y título */
+body .um-modal-body{ padding: 20px 20px 10px !important; }
+body .um-modal-title{
+  margin: 0 0 16px !important;
+  font-size: 18px !important; font-weight: 800 !important; color:#111827 !important;
+}
+
+/* Labels */
+body .um-modal label{
+  display:block !important; margin: 10px 0 6px !important;
+  font-size: 13px !important; font-weight: 700 !important;
+  color:#1f2937 !important; opacity:1 !important;
+}
+
+/* Inputs + selects (estilo caja redondeada como en la imagen) */
+body .um-modal .input,
+body .um-modal select,
+body .um-modal input[type="text"],
+body .um-modal input[type="email"],
+body .um-modal input[type="tel"],
+body .um-modal input[type="number"]{
+  display:block !important; width:100% !important;
+  height: 40px !important; line-height: 40px !important;
+  padding: 0 12px !important;
+  background:#fff !important;
+  color:#111827 !important;
+  border:1px solid #e5e7eb !important;
+  border-radius: 10px !important;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.03) !important;
+  outline:none !important;
+  appearance: none !important; -webkit-appearance: none !important; -moz-appearance: none !important;
+}
+body .um-modal .input::placeholder{ color:#9ca3af !important; opacity:1 !important; }
+body .um-modal .input:focus,
+body .um-modal select:focus{
+  border-color:#2563eb !important;
+  box-shadow: 0 0 0 3px rgba(37,99,235,.14) !important;
+}
+
+/* Footer y botones (exacto a la captura) */
+body .um-modal-actions{
+  padding: 12px 16px !important;
+  border-top: 1px solid #eef2f7 !important;
+  background:#fff !important;
+  display:flex !important; justify-content:flex-end !important; gap:12px !important;
+}
+
+/* Cancelar gris */
+body .um-modal-actions .btn-ghost{
+  background:#f3f4f6 !important;
+  color:#374151 !important;
+  border:1px solid #e5e7eb !important;
+  font-weight:700 !important;
+  border-radius: 10px !important;
+  padding: 8px 16px !important;
+}
+body .um-modal-actions .btn-ghost:hover{ background:#e5e7eb !important; }
+
+/* Guardar azul con degradado y sombra suave */
+body .um-modal-actions .btn-primary{
+  background: linear-gradient(90deg,#2563eb,#3b82f6) !important;
+  color:#ffffff !important;
+  font-weight:800 !important; letter-spacing:.2px !important;
+  border:1px solid rgba(0,0,0,.05) !important;
+  border-radius: 10px !important;
+  padding: 8px 18px !important;
+  box-shadow: 0 8px 18px rgba(37,99,235,.25) !important;
+}
+body .um-modal-actions .btn-primary:hover{ filter: brightness(.98) !important; }
+body .um-modal-actions .btn-primary:active{ transform: translateY(1px) !important; }
+
+/* Previene deslavado por opacidades heredadas */
+body .um-modal, body .um-modal *{ opacity: initial !important; }

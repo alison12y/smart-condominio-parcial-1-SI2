@@ -18,6 +18,12 @@ import Usuarios from "../pages/Users";                // Gestionar Usuarios
 import RolesPermisos from "../pages/RolesYPermisos";  // Roles y Permisos
 import Bitacora from "../pages/bitacora";             // Gestionar Bitácora
 import RecordatoriosDePago from "../pages/RecordatoriosDePago";     // Recordatorios de pago
+import CuotasyGastosComunes from "../pages/CuotasyGastosComunes"; // Cuotas y Gastos Comunes
+import ReportesFinancieros from "../pages/ReportesFinancieros"; // Reportes Financieros
+import AvisosComunicadosApp from "../pages/AvisosyComunicados";
+import Mantenimiento from "../pages/Mantenimiento";
+import PrediccionMorosidad from "../pages/Predicion-Morosidad";
+
 
 /* ====== DASHBOARD ====== */
 
@@ -36,6 +42,19 @@ const Dashboard = () => {
         return <Bitacora />;
       case "FinanceAnalytics-RegistrarPago":      
       return <RecordatoriosDePago />;
+      case "FinanceAnalytics-Cuotas":      
+      return <CuotasyGastosComunes />;
+      case "FinanceAnalytics-Reportes":      
+      return <ReportesFinancieros />;
+      case "CommsServices-AvisosYComunicados":      
+      return <AvisosComunicadosApp />;
+      case "PlatformOps-Mantenimiento":      
+      return <Mantenimiento />;
+      case "FinanceAnalytics-Prediccion":      
+      return <PrediccionMorosidad />
+
+
+
 
       default:
         return null;

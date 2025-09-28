@@ -184,7 +184,6 @@ function AuditoriaResidencial() {
             <Eye className="ad-ico-20 ad-purple" />
             <div>
               <h2 className="ad-h2">Bitácora de Auditoría - Sistema Residencial</h2>
-              <p className="ad-text-dim">Registro detallado para cumplimiento y trazabilidad</p>
             </div>
           </div>
           <button className="ad-btn ad-btn-primary" onClick={handleExport}>
