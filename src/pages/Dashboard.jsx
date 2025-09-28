@@ -18,6 +18,10 @@ import Usuarios from "../pages/Users";                // Gestionar Usuarios
 import RolesPermisos from "../pages/RolesYPermisos";  // Roles y Permisos
 import Bitacora from "../pages/bitacora";             // Gestionar Bitácora
 import RecordatoriosDePago from "../pages/RecordatoriosDePago";     // Recordatorios de pago
+import CuotasGastosInterface from "../pages/CuotasyGastosComunes";
+import ReportesFinancieros from "../pages/Reportes";
+import Prediccion from "../pages/Prediccion";
+import ReportesAreasComunes from "../pages/Uso-de-areas";
 
 /* ====== DASHBOARD ====== */
 
@@ -36,6 +40,14 @@ const Dashboard = () => {
         return <Bitacora />;
       case "FinanceAnalytics-RegistrarPago":      
       return <RecordatoriosDePago />;
+      case "FinanceAnalytics-Cuotas":      
+      return <CuotasGastosInterface />;
+      case "FinanceAnalytics-Reportes":      
+      return <ReportesFinancieros />;
+      case "FinanceAnalytics-Prediccion":      
+      return <Prediccion />;
+      case "FinanceAnalytics-ReportesUso":      
+      return <ReportesAreasComunes />;
 
       default:
         return null;
