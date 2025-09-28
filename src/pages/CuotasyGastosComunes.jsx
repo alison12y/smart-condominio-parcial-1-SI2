@@ -38,6 +38,7 @@ const CuotasGastosInterface = () => {
     setErrores(errs);
     return Object.keys(errs).length === 0;
   };
+
   const validarMulta = () => {
     const errs = {};
     if (!nuevaMulta.concepto.trim()) errs.concepto = 'Debe completar todos los campos requeridos';
@@ -60,13 +61,16 @@ const CuotasGastosInterface = () => {
     setShowCuotaForm(false);
     setErrores({});
   };
+
   const handleEditarCuota = (cuota) => {
     setEditingCuota(cuota);
     setNuevaCuota({ nombre: cuota.nombre, monto: cuota.monto.toString(), periodicidad: cuota.periodicidad, vencimiento: cuota.vencimiento });
     setShowCuotaForm(true);
   };
+
   const handleEliminarCuota = (id) => {
-    if (confirm('¿Está seguro de que desea eliminar esta cuota?')) {
+    // eslint-disable-next-line no-restricted-globals, no-alert
+    if (window.confirm('¿Está seguro de que desea eliminar esta cuota?')) {
       setCuotas(cuotas.filter(c => c.id !== id));
     }
   };
@@ -87,13 +91,16 @@ const CuotasGastosInterface = () => {
     setShowMultaForm(false);
     setErrores({});
   };
+
   const handleEditarMulta = (multa) => {
     setEditingMulta(multa);
     setNuevaMulta({ concepto: multa.concepto, monto: multa.monto.toString(), tipo: multa.tipo, residente: multa.residente });
     setShowMultaForm(true);
   };
+
   const handleEliminarMulta = (id) => {
-    if (confirm('¿Está seguro de que desea eliminar este registro?')) {
+    // eslint-disable-next-line no-restricted-globals, no-alert
+    if (window.confirm('¿Está seguro de que desea eliminar este registro?')) {
       setMultasServicios(multasServicios.filter(m => m.id !== id));
     }
   };
@@ -102,7 +109,9 @@ const CuotasGastosInterface = () => {
   const calcularCuota = () => {
     if (!calculoUnidad) { setErrores({ unidad: 'Debe seleccionar una unidad' }); return; }
     const cuotaBase = cuotas.reduce((t, c) => t + c.monto, 0);
-    const multasUnidad = multasServicios.filter(i => i.residente === calculoUnidad).reduce((t, i) => t + i.monto, 0);
+    const multasUnidad = multasServicios
+      .filter(i => i.residente === calculoUnidad)
+      .reduce((t, i) => t + i.monto, 0);
     setResultadoCalculo({ unidad: calculoUnidad, cuotaBase, multasServicios: multasUnidad, total: cuotaBase + multasUnidad });
     setErrores({});
   };
