@@ -24,6 +24,13 @@ import MaintenanceManagement from "./Mantenimiento";
 import PrediccionMorosidad from "../pages/Predicion-Morosidad";
 import ReportesFinancieros from "../pages/ReportesFinancieros";
 import ReportesAreasComunes from "./Uso-de-areas";
+import FacialAccessSystem from "./ReconocimientoFacial";
+import VehicleRecognitionSystem from "./ReconocimientoVehiculo";
+import SecurityAISystem from "./SeguridadAnomalias";
+import CorrespondenceManagement from "./Correspondencia";
+import CommunityIncidentsApp from "./Incidentes";
+import SecurityDashboard from "./SeguridadInformatica";
+import PreventiveMaintenance from "./PreventivoIA";
 
 
 /* ====== DASHBOARD ====== */
@@ -53,18 +60,34 @@ const Dashboard = () => {
       case "FinanceAnalytics-ReportesUso":      
       return <ReportesAreasComunes />;
 
-
+// MODULO DE SEGURIDAD
+      case "SecurityAI-Acceso":      
+      return <FacialAccessSystem />;
+      case "SecurityAI-ReconocimientoVehiculos":      
+      return <VehicleRecognitionSystem />;
+      case "SecurityAI-SeguridadAnomalias":      
+      return <SecurityAISystem />;
+ 
 // MODULO COMUNICACIONES
       case "CommsServices-AvisosYComunicados":      
       return <AvisosYComunicadosApp />;
+      case "CommsServices-Correspondencia":      
+      return <CorrespondenceManagement />;
+      case "CommsServices-ReportarIncidencias":      
+      return <CommunityIncidentsApp />;
 
 // MODULO DE PLATAFORMA 
       case "PlatformOps-Mantenimiento":      
       return <MaintenanceManagement />;
-
+      case "PlatformOps-SeguridadInformatica":      
+      return <SecurityDashboard />;
+      case "PlatformOps-MantenimientoPreventivo":      
+      return <PreventiveMaintenance />;
       default:
         return null;
     }
+
+    
   };
 
   // Datos de ejemplo

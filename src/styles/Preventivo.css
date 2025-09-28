@@ -1,0 +1,95 @@
+:root{
+  --bg:#f5f7fb; --card:#fff; --text:#1f2937; --muted:#6b7280;
+  --primary:#2563eb; --primary-600:#1d4ed8; --border:#e5e7eb; --shadow:0 10px 30px rgba(2,16,40,.08);
+  --ok:#16a34a; --warn:#f59e0b; --danger:#ef4444; --info:#0ea5e9;
+}
+*{box-sizing:border-box}
+body{background:var(--bg); color:var(--text)}
+button, input, select{font:inherit}
+
+/* CONTENEDOR / HEADER */
+.pm-container{max-width:1100px;margin:24px auto;padding:0 16px}
+.pm-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:16px}
+.pm-header h1{margin:0;font-size:28px}
+.pm-sub{margin:6px 0 0;color:var(--muted)}
+.pm-user{display:flex;gap:8px}
+
+/* PASOS */
+.pm-steps{display:flex;gap:8px;padding:0;margin:12px 0 20px;list-style:none;overflow:auto}
+.pm-step button{border:1px solid var(--border);background:#fff;padding:10px 12px;border-radius:10px;cursor:pointer;box-shadow:var(--shadow);white-space:nowrap}
+.pm-step.is-active button{border-color:var(--primary);outline:2px solid rgba(37,99,235,.15)}
+.pm-step.is-done button{opacity:.85}
+
+/* TARJETA */
+.pm-card{background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+.pm-card__header{display:flex;align-items:center;justify-content:space-between;padding:16px;border-bottom:1px solid var(--border)}
+.pm-actions{display:flex;gap:8px;flex-wrap:wrap}
+
+/* BOTONES */
+.pm-btn{border:1px solid var(--border);background:#fff;padding:8px 12px;border-radius:10px;cursor:pointer}
+.pm-btn:hover{filter:brightness(.98)}
+.pm-btn--primary{background:var(--primary);color:#fff;border-color:var(--primary)}
+.pm-btn--primary:hover{background:var(--primary-600)}
+.pm-btn--ghost{background:transparent}
+.pm-btn--success{background:var(--ok);border-color:var(--ok);color:#fff}
+
+/* ALERTAS */
+.pm-alert{margin:12px 0;padding:12px 14px;border-radius:10px;border:1px solid}
+.pm-alert--success{background:#ecfdf5;border-color:#a7f3d0;color:#065f46}
+.pm-alert--warning{background:#fffbeb;border-color:#fde68a;color:#92400e}
+.pm-alert--error{background:#fef2f2;border-color:#fecaca;color:#991b1b}
+
+/* GRID DE STATS */
+.pm-grid{display:grid;gap:12px;padding:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.pm-stat{background:#f8fafc;border:1px solid var(--border);border-radius:12px;padding:12px}
+.pm-stat__label{color:var(--muted);font-size:12px}
+.pm-stat__value{font-weight:700;font-size:22px}
+
+/* TABLA */
+.pm-table{width:100%;border-collapse:separate;border-spacing:0 8px;padding:16px}
+.pm-table thead th{font-weight:600;color:var(--muted);text-align:left;padding:0 10px}
+.pm-table tbody tr{background:#fff;border:1px solid var(--border)}
+.pm-table tbody td{padding:12px 10px;border-top:1px solid var(--border)}
+.pm-table tbody tr:first-child td{border-top:none}
+.pm-table tbody tr{border-radius:10px;overflow:hidden}
+.pm-table tbody tr.is-selected{outline:2px solid rgba(37,99,235,.25)}
+
+/* CHIPS por categoría (usar slug en JS) */
+.pm-chip{display:inline-block;padding:4px 8px;border-radius:999px;font-size:12px;background:#eef2ff;color:#3730a3;border:1px solid #c7d2fe}
+.pm-chip--ascensores{background:#fef3c7;color:#92400e;border-color:#fde68a}
+.pm-chip--hidraulico{background:#cffafe;color:#0e7490;border-color:#a5f3fc}
+.pm-chip--electrico{background:#e9d5ff;color:#6b21a8;border-color:#d8b4fe}
+.pm-chip--accesos{background:#dcfce7;color:#166534;border-color:#bbf7d0}
+
+/* BADGES */
+.pm-badge{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:4px 10px;font-size:12px;border:1px solid var(--border);background:#fff}
+.pm-badge--danger{background:#fef2f2;border-color:#fecaca;color:#991b1b}
+.pm-badge--warning{background:#fffbeb;border-color:#fde68a;color:#92400e}
+.pm-badge--ok{background:#ecfdf5;border-color:#a7f3d0;color:#065f46}
+.pm-badge--info{background:#eff6ff;border-color:#bfdbfe;color:#1e40af}
+.pm-badge--alta{background:#fee2e2;border-color:#fecaca;color:#991b1b}
+.pm-badge--media{background:#fff7ed;border-color:#fed7aa;color:#9a3412}
+.pm-badge--baja{background:#e0f2fe;border-color:#bae6fd;color:#075985}
+.pm-badge--admin{background:#e0e7ff;border-color:#c7d2fe;color:#3730a3;padding:6px 10px}
+
+/* TARJETAS DE RIESGO (IA) */
+.pm-tile{border:1px solid var(--border);border-radius:12px;padding:12px;background:#fff}
+.pm-tile__top{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.pm-tile__meta{display:flex;align-items:center;gap:10px;color:var(--muted)}
+
+/* SELECT */
+.pm-select{width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:10px;background:#fff}
+
+/* LISTA DE EJECUCIÓN */
+.pm-list{display:flex;flex-direction:column;gap:10px;padding:16px}
+.pm-item{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);border-radius:12px;padding:12px;background:#fff}
+.pm-item__main{display:flex;flex-direction:column}
+.pm-item__meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pm-assignee{color:var(--muted)}
+
+/* FOOTER */
+.pm-footer{margin:22px 4px;color:var(--muted)}
+
+/* UTILES */
+.pm-muted{color:var(--muted)}
+.pm-switch{display:flex;align-items:center;gap:8px}

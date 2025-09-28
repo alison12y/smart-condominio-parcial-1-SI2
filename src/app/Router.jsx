@@ -11,6 +11,14 @@ import MaintenanceManagement from "../pages/Mantenimiento";
 import PrediccionMorosidad from "../pages/Predicion-Morosidad";
 import ReportesFinancieros from "../pages/ReportesFinancieros";
 import ReportesAreasComunes from "../pages/Uso-de-areas";
+import FacialAccessSystem from "../pages/ReconocimientoFacial";
+import VehicleRecognitionSystem from "../pages/ReconocimientoVehiculo";
+import CorrespondenceManagement from "../pages/Correspondencia";
+import SecurityAISystem from "../pages/SeguridadAnomalias";
+import CommunityIncidentsApp from "../pages/Incidentes";
+import SecurityDashboard from "../pages/SeguridadInformatica";
+import PreventiveMaintenance from "../pages/PreventivoIA";
+
 
 
 function PrivateRoute({ children }) {
@@ -34,6 +42,14 @@ export default function AppRouter() {
       <Route path="/prediccion" element={<PrivateRoute><PrediccionMorosidad/></PrivateRoute>} />
       <Route path="/reportes" element={<PrivateRoute><ReportesFinancieros/></PrivateRoute>} />
       <Route path="/usoAreas" element={<PrivateRoute><ReportesAreasComunes/></PrivateRoute>} />
+      <Route path="/facial" element={<PrivateRoute><FacialAccessSystem/></PrivateRoute>} />
+      <Route path="/vehiculo" element={<PrivateRoute><VehicleRecognitionSystem/></PrivateRoute>} />
+      <Route path="/correspondencia" element={<PrivateRoute><CorrespondenceManagement/></PrivateRoute>} />
+      <Route path="/Seguridad" element={<PrivateRoute><SecurityAISystem/></PrivateRoute>} />
+      <Route path="/Incidentes" element={<PrivateRoute><CommunityIncidentsApp/></PrivateRoute>} />
+      <Route path="/informatica" element={<PrivateRoute><SecurityDashboard/></PrivateRoute>} />
+      <Route path="/preventivo" element={<PrivateRoute><PreventiveMaintenance/></PrivateRoute>} />
+
 
       <Route path="*" element={<Navigate to="/login" replace />} />
     </Routes>

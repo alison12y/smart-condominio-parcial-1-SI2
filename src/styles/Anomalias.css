@@ -1,0 +1,225 @@
+:root{
+  --bg:#f8fafc;
+  --font: system-ui, -apple-system, sans-serif;
+
+  --c-slate:#1e293b;
+  --c-slate-300:#e2e8f0;
+  --c-slate-100:#f1f5f9;
+
+  --c-gray:#6b7280;
+  --c-gray-500:#64748b;
+
+  --c-blue:#3b82f6;
+  --c-green:#10b981;
+  --c-amber:#f59e0b;
+  --c-red:#ef4444;
+
+  --panel-bg:#fff;
+  --panel-border:#e2e8f0;
+  --shadow:0 1px 3px rgba(0,0,0,.1);
+}
+
+/* Root */
+.sas-root{
+  min-height:100vh;
+  background:var(--bg);
+  font-family:var(--font);
+}
+
+/* Header */
+.sas-header{
+  background:var(--c-slate);
+  color:#fff;
+  padding:1rem 2rem;
+  box-shadow:0 2px 4px rgba(0,0,0,.1);
+}
+.sas-header-row{display:flex;justify-content:space-between;align-items:center}
+.sas-header-brand{display:flex;align-items:center;gap:1rem}
+.sas-header-title{margin:0;font-size:1.5rem;font-weight:700}
+.sas-header-right{display:flex;align-items:center;gap:1rem}
+.sas-ai-status{display:flex;align-items:center;gap:.5rem}
+.sas-dot{width:8px;height:8px;border-radius:50%;background:var(--c-red)}
+.sas-dot.on{background:var(--c-green)}
+.sas-alert-pill{
+  background:var(--c-gray);
+  color:#fff;
+  padding:.5rem 1rem;
+  border-radius:20px;
+  font-size:.875rem;
+  display:flex;align-items:center;gap:.5rem
+}
+.sas-alert-pill.has{background:var(--c-red)}
+
+/* Nav */
+.sas-nav{background:#fff;border-bottom:1px solid var(--panel-border);padding:0 2rem}
+.sas-nav-row{display:flex;gap:2rem}
+.sas-tab{
+  padding:1rem 0;border:none;background:none;cursor:pointer;
+  color:var(--c-gray-500);
+  border-bottom:2px solid transparent;
+  display:flex;align-items:center;gap:.5rem;
+  font-size:.875rem;font-weight:500
+}
+.sas-tab.active{color:var(--c-blue);border-bottom-color:var(--c-blue)}
+
+/* Main */
+.sas-main{padding:2rem}
+.sas-h2{margin-bottom:2rem;color:var(--c-slate)}
+.sas-h3{margin:0;color:var(--c-slate)}
+
+/* Cards */
+.sas-cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:1.5rem;margin-bottom:2rem
+}
+.sas-card{
+  background:#fff;padding:1.5rem;border-radius:8px;
+  box-shadow:var(--shadow);border:1px solid var(--panel-border)
+}
+.sas-card-row{display:flex;justify-content:space-between;align-items:center}
+.sas-card-label{margin:0;color:var(--c-gray-500);font-size:.875rem}
+.sas-card-number{margin:.5rem 0 0;font-size:2rem;font-weight:800}
+.sas-card-number.red{color:var(--c-red)}
+.sas-card-number.green{color:var(--c-green)}
+.sas-card-number.blue{color:var(--c-blue)}
+
+/* Panel + list */
+.sas-panel{
+  background:#fff;border-radius:8px;box-shadow:var(--shadow);
+  border:1px solid var(--panel-border);padding:1.5rem;margin-top:0;margin-bottom:0
+}
+.sas-panel-header{padding:0 0 1.5rem;border-bottom:1px solid var(--panel-border)}
+.sas-list{max-height:300px;overflow:auto}
+.sas-list-item{
+  padding:1rem 0;border-bottom:1px solid #f1f5f9;
+  display:flex;justify-content:space-between;align-items:center
+}
+.sas-list-left{display:flex;align-items:center;gap:1rem}
+.sas-bullet{width:12px;height:12px;border-radius:50%}
+.sas-item-title{margin:0;font-weight:500;color:var(--c-slate)}
+.sas-item-sub{margin:.25rem 0 0;font-size:.875rem;color:var(--c-gray-500)}
+
+/* Buttons */
+.sas-btn{
+  padding:.5rem 1rem;border:none;border-radius:4px;
+  cursor:pointer;font-size:.875rem;display:inline-flex;align-items:center;gap:.5rem
+}
+.sas-btn.primary{background:var(--c-blue);color:#fff}
+.sas-btn.primary.ghost{background:var(--bg);color:#fff;background:var(--c-blue)}
+.sas-btn.gray{background:var(--c-gray);color:#fff}
+.sas-btn.success{background:var(--c-green);color:#fff}
+.sas-btn.danger{background:#dc2626;color:#fff}
+
+/* Grid cameras */
+.sas-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.sas-cam{
+  background:#fff;border-radius:8px;box-shadow:var(--shadow);
+  border:1px solid var(--panel-border);overflow:hidden
+}
+.sas-cam-header{
+  padding:1rem;border-bottom:1px solid var(--panel-border);
+  display:flex;justify-content:space-between;align-items:center
+}
+.sas-cam-title{margin:0;color:var(--c-slate)}
+.sas-cam-sub{margin:.25rem 0 0;font-size:.875rem;color:var(--c-gray-500)}
+.sas-badge{padding:.25rem .75rem;border-radius:12px;font-size:.75rem}
+.sas-badge.ok{background:#dcfce7;color:#16a34a}
+.sas-badge.warn{background:#fef3c7;color:#d97706}
+.sas-cam-body{
+  height:200px;background:var(--c-slate-100);
+  display:flex;align-items:center;justify-content:center;position:relative
+}
+.sas-live{
+  position:absolute;top:1rem;right:1rem;background:var(--c-red);color:#fff;
+  padding:.25rem .5rem;border-radius:4px;font-size:.75rem
+}
+.sas-cam-maint{text-align:center;color:var(--c-gray-500)}
+.sas-cam-maint-text{margin:.5rem 0 0;font-size:.875rem}
+
+/* Empty state */
+.sas-empty{
+  background:#fff;padding:3rem;border-radius:8px;text-align:center;
+  box-shadow:var(--shadow);border:1px solid var(--panel-border)
+}
+.sas-empty-title{margin:1rem 0 .5rem;color:var(--c-gray-500)}
+.sas-empty-sub{margin:0;color:var(--c-gray-500)}
+
+/* Alerts list */
+.sas-alerts{display:flex;flex-direction:column;gap:1rem}
+.sas-alert-card{
+  background:#fff;padding:1.5rem;border-radius:8px;box-shadow:var(--shadow);
+  border:1px solid var(--panel-border)
+}
+.sas-alert-card.border-high{border-left:4px solid var(--c-red)}
+.sas-alert-card.border-medium{border-left:4px solid var(--c-amber)}
+.sas-alert-card.border-low{border-left:4px solid var(--c-green)}
+.sas-alert-row{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
+.sas-alert-left{flex:1}
+.sas-alert-head{display:flex;align-items:center;gap:1rem;margin-bottom:.5rem}
+.sas-alert-meta{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
+.sas-meta{display:flex;align-items:center;gap:.5rem;color:var(--c-gray-500);font-size:.875rem}
+.sas-actions{display:flex;gap:.5rem}
+
+/* Chips */
+.sas-chip{
+  padding:.25rem .75rem;border-radius:12px;font-size:.75rem;text-transform:uppercase;font-weight:600
+}
+.sev-high{background:#fef2f2;color:var(--c-red)}
+.sev-medium{background:#fffbeb;color:#d97706}
+.sev-low{background:#f0fdf4;color:var(--c-green)}
+.st-pending{background:#fef3c7;color:#d97706}
+.st-reviewed{background:#dcfce7;color:#16a34a}
+.st-not-relevant{background:#f3f4f6;color:#6b7280}
+
+/* Filters */
+.sas-filter-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:1rem;align-items:end
+}
+.sas-label{display:block;margin-bottom:.5rem;font-size:.875rem;color:#374151}
+.sas-input{
+  width:100%;padding:.5rem;border:1px solid #d1d5db;border-radius:4px;font-size:.875rem;background:#fff
+}
+.sas-export{display:flex;gap:.5rem;align-items:center}
+
+/* Table */
+.sas-table-wrap{
+  background:#fff;border-radius:8px;box-shadow:var(--shadow);
+  border:1px solid var(--panel-border);overflow:hidden;margin-top:2rem
+}
+.sas-table-scroll{overflow:auto}
+.sas-table{width:100%;border-collapse:collapse}
+.sas-table thead{background:var(--bg)}
+.sas-table th{padding:1rem;text-align:left;border-bottom:1px solid var(--panel-border);color:#374151;font-size:.875rem;font-weight:600}
+.sas-table td{padding:1rem;border-bottom:1px solid #f1f5f9;font-size:.875rem;color:var(--c-slate)}
+
+/* Modal */
+.sas-modal-backdrop{
+  position:fixed;inset:0;background:rgba(0,0,0,.5);
+  display:flex;align-items:center;justify-content:center;z-index:1000
+}
+.sas-modal{
+  background:#fff;border-radius:8px;padding:2rem;max-width:600px;width:90%;
+  max-height:80vh;overflow:auto
+}
+.sas-modal.small{max-width:400px}
+.sas-modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem}
+.sas-modal-title{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
+.sas-icon-btn{background:none;border:none;cursor:pointer;padding:.5rem;border-radius:4px}
+.sas-modal-body{margin-bottom:1.5rem}
+.sas-video-placeholder{
+  height:300px;background:var(--c-slate-100);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;margin-bottom:1rem
+}
+.sas-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.sas-small-label{margin:0;font-size:.875rem;color:var(--c-gray-500)}
+.sas-detail{margin:.25rem 0 0;font-weight:500;color:var(--c-slate)}
+.sas-modal-actions{display:flex;gap:1rem;justify-content:flex-end}
+.sas-error-text{margin:0 0 1.5rem;color:var(--c-gray-500)}
+.sas-modal-foot{text-align:right}
+
+/* Utilities to match dynamic colors via classnames */
+.border-high{border-left:4px solid var(--c-red)}
+.border-medium{border-left:4px solid var(--c-amber)}
+.border-low{border-left:4px solid var(--c-green)}
